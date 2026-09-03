@@ -12,9 +12,9 @@ const PROFILE = {
       logoSrc: "asset/logo/linkedin.svg",
     },
     {
-      label: "GitHub",
-      url: "https://github.com/yunsi-goh",
-      logoSrc: "asset/logo/github.png",
+      label: "Gmail: gohgys97@gmail.com",
+      url: "mailto:gohgys97@gmail.com",
+      logoSrc: "asset/logo/gmail.svg",
     },
   ],
 };
@@ -22,7 +22,7 @@ const PROFILE = {
 const EXPERIENCE = [
   {
     company: "DHI Water & Environment",
-    title: "Professional, GIS Specialist",
+    title: "GIS Specialist",
     logo: "DHI",
     logoSrc: "asset/logo/dhi.png",
   },
@@ -59,7 +59,7 @@ const PROJECTS = [
   {
     name: "Gift Propensity Prediction System",
     slug: "gift-propensity-prediction",
-    tags: ["MLOps", "PySpark", "Airflow", "MLflow", "Kafka"],
+    tags: ["MLOps", "PySpark", "Kafka", "Airflow", "Model Monitoring"],
     github: "https://github.com/yunsi-goh/Livestream-Gift-Propensity-Prediction-System",
     slideFolder: "asset/project/Livestream Gift Propensity Prediction",
     slideCount: 17,
@@ -67,33 +67,40 @@ const PROJECTS = [
   {
     name: "Health Claim Verification Agentic System",
     slug: "health-claim-verification",
-    tags: ["RAG", "LangGraph", "Agents", "Evaluation"],
+    tags: ["RAG", "VectorDB", "Chunking", "LangGraph", "Agentic AI", "LLM Evaluation"],
     github: "https://github.com/yunsi-goh/Health-Claim-Verification-Agentic-System",
     slideFolder: "asset/project/Health Claim Verification Agentic System",
-    slideCount: 24,
-  },
-  {
-    name: "Medical Image Segmentation",
-    slug: "medical-image-segmentation",
-    tags: ["Computer Vision", "SAM", "LoRA", "nnU-Net"],
-    github: "https://github.com/yunsi-goh/Medical-Image-Segmentation",
-    slideFolder: "asset/project/Medical Image Segmentation",
     slideCount: 23,
   },
   {
     name: "MERaLiON Safety Evaluation",
     slug: "meralion-safety-evaluation",
-    tags: ["Model Safety", "Fairness", "Speech AI"],
+    tags: ["ASR Evaluation", "Robustness", "Fairness", "AI Safety"],
     github: "https://github.com/yunsi-goh/MERaLiON-Safety-Evaluation",
     slideFolder: "asset/project/MERaLiON Safety Evaluation",
     slideCount: 30,
   },
   {
+    name: "Medical Image Segmentation",
+    slug: "medical-image-segmentation",
+    tags: ["Transfer Learning", "nnU-Net", "LoRA"],
+    github: "https://github.com/yunsi-goh/Medical-Image-Segmentation",
+    slideFolder: "asset/project/Medical Image Segmentation",
+    slideCount: 23,
+  },
+  {
     name: "Sneaker Image Classification",
     slug: "sneaker-image-classification",
-    tags: ["Computer Vision", "Image Classification", "Deep Learning"],
+    tags: ["Transfer Learning", "CNN", "ResNet50"],
     github: "https://github.com/yunsi-goh/Sneaker-Image-Classification",
     slideFolder: "asset/project/Sneaker Image Classification",
     slideCount: 15,
+  },
+  {
+    name: "Gomoku AI Game Bot",
+    slug: "gomoku-ai-game-bot",
+    tags: ["LLM Agent", "Prompt Engineering"],
+    github: "https://github.com/yunsi-goh/Gomoku-AI-Agent",
+    thumbnail: "asset/project/Gomoku AI Agent.png",
   },
 ];

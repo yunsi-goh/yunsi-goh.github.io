@@ -19,6 +19,12 @@ function logoMark(item) {
   return `<span class="logo-frame logo-fallback" aria-hidden="true">${item.logo}</span>`;
 }
 
+function formatLogoHeading(value, targetId) {
+  if (targetId !== "education-list") return value;
+
+  return value.replace(/\s+(\([^)]*\))$/, "<br>$1");
+}
+
 function renderLogoRows(items, targetId, nameKey, detailKey) {
   const target = document.getElementById(targetId);
   if (!target) return;
@@ -29,7 +35,7 @@ function renderLogoRows(items, targetId, nameKey, detailKey) {
         <article class="logo-card">
           ${logoMark(item)}
           <div>
-            <h3>${item[nameKey]}</h3>
+            <h3>${formatLogoHeading(item[nameKey], targetId)}</h3>
             <p>${item[detailKey]}</p>
           </div>
         </article>
@@ -75,16 +81,30 @@ function renderProjects() {
 
   target.innerHTML = PROJECTS
     .map(
-      (project, index) => `
-        <a class="project-card" href="slideshow.html?project=${encodeURIComponent(project.slug || index)}">
+      (project, index) => {
+        const slideImages = getSlideImages(project);
+        const thumbnail = project.thumbnail || slideImages[0];
+        const href =
+          slideImages.length > 0
+            ? `slideshow.html?project=${encodeURIComponent(project.slug || index)}`
+            : project.github;
+
+        return `
+        <a class="project-card" href="${href}" ${externalAttrs(href)}>
           <div class="project-body">
             <h3>${project.name}</h3>
             <ul class="tag-list">
               ${project.tags.map((tag) => `<li>${tag}</li>`).join("")}
             </ul>
           </div>
+          ${
+            thumbnail
+              ? `<img class="project-thumbnail" src="${thumbnail}" alt="${project.name} slide 1" loading="lazy">`
+              : ""
+          }
         </a>
-      `
+      `;
+      }
     )
     .join("");
 }
@@ -122,7 +142,6 @@ function renderStandaloneSlideshow() {
 
   if (!project || getSlideImages(project).length === 0) {
     target.innerHTML = `
-      <a class="back-button" href="projects.html">Back to projects</a>
       <h2>Slides not found</h2>
       <p class="muted-text">This project does not have a slide preview yet.</p>
     `;
@@ -130,17 +149,18 @@ function renderStandaloneSlideshow() {
   }
 
   target.innerHTML = `
-    <a class="back-button" href="projects.html">Back to projects</a>
     <article>
-      <h2>${project.name}</h2>
+      <div class="project-title-row">
+        <h2>${project.name}</h2>
+        ${
+          project.github
+            ? `<p class="detail-actions"><a class="logo-action" href="${project.github}" ${externalAttrs(project.github)} aria-label="Open ${project.name} on GitHub"><img src="asset/logo/github.png" alt="" loading="lazy"></a></p>`
+            : ""
+        }
+      </div>
       <ul class="tag-list">
         ${project.tags.map((tag) => `<li>${tag}</li>`).join("")}
       </ul>
-      ${
-        project.github
-          ? `<p class="detail-actions"><a href="${project.github}" ${externalAttrs(project.github)}>GitHub</a></p>`
-          : ""
-      }
       ${renderProjectSlides(project)}
     </article>
   `;
