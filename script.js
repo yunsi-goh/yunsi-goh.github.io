@@ -80,38 +80,44 @@ function renderProjectSlides(project) {
   `;
 }
 
-function renderProjects() {
-  const target = document.getElementById("project-grid");
+function projectCardMarkup(project, index) {
+  const slideImages = getSlideImages(project);
+  const thumbnail = project.thumbnail || slideImages[0];
+  const href =
+    slideImages.length > 0
+      ? `slideshow.html?project=${encodeURIComponent(project.slug || index)}`
+      : project.github;
+
+  return `
+    <a class="project-card" href="${href}" ${externalAttrs(href)}>
+      <div class="project-body">
+        <h3>${project.name}</h3>
+        <ul class="tag-list">
+          ${project.tags.map((tag) => `<li>${tag}</li>`).join("")}
+        </ul>
+      </div>
+      ${
+        thumbnail
+          ? `<img class="project-thumbnail" src="${thumbnail}" alt="${project.name} slide 1" loading="lazy">`
+          : ""
+      }
+    </a>
+  `;
+}
+
+function renderProjectCards(targetId, projects) {
+  const target = document.getElementById(targetId);
   if (!target) return;
 
-  target.innerHTML = PROJECTS
-    .map(
-      (project, index) => {
-        const slideImages = getSlideImages(project);
-        const thumbnail = project.thumbnail || slideImages[0];
-        const href =
-          slideImages.length > 0
-            ? `slideshow.html?project=${encodeURIComponent(project.slug || index)}`
-            : project.github;
+  target.innerHTML = projects.map(projectCardMarkup).join("");
+}
 
-        return `
-        <a class="project-card" href="${href}" ${externalAttrs(href)}>
-          <div class="project-body">
-            <h3>${project.name}</h3>
-            <ul class="tag-list">
-              ${project.tags.map((tag) => `<li>${tag}</li>`).join("")}
-            </ul>
-          </div>
-          ${
-            thumbnail
-              ? `<img class="project-thumbnail" src="${thumbnail}" alt="${project.name} slide 1" loading="lazy">`
-              : ""
-          }
-        </a>
-      `;
-      }
-    )
-    .join("");
+function renderProjects() {
+  renderProjectCards("project-grid", PROJECTS);
+}
+
+function renderFeaturedProjects() {
+  renderProjectCards("featured-project-grid", PROJECTS.slice(0, 3));
 }
 
 function bindSlideshows(scope, project) {
@@ -233,5 +239,6 @@ setText("profile-name", PROFILE.name);
 renderLogoRows(EXPERIENCE, "experience-list", "title", "company");
 renderLogoRows(EDUCATION, "education-list", "degree", "school");
 renderProjects();
+renderFeaturedProjects();
 renderStandaloneSlideshow();
 renderContact();

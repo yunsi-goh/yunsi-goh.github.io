@@ -10,11 +10,12 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 </head>
-<body data-page="about">
+<body data-page="home">
 <main class="shell">
   <header class="topbar">
+    <a class="home-tab active" href="index.html">Goh Yun Si</a>
     <nav class="tabs" aria-label="Portfolio pages">
-      <a class="tab-link active" href="index.html">About Me</a>
+      <a class="tab-link" href="about.html">About Me</a>
       <a class="tab-link" href="projects.html">Projects</a>
       <a class="tab-link" href="contact.html">Contact</a>
     </nav>
@@ -28,16 +29,19 @@
         <h1 id="profile-name"></h1>
       </div>
     </div>
-    <div class="about-stack">
-      <section>
-        <h2>Education</h2>
-        <div class="logo-card-row" id="education-list"></div>
-      </section>
-      <section>
-        <h2>Experience</h2>
-        <div class="logo-card-row" id="experience-list"></div>
-      </section>
+  </section>
+
+  <section class="section-card featured-projects">
+    <div class="section-heading-row">
+      <h2>Featured Projects</h2>
+      <a class="view-more-link" href="projects.html">View more</a>
     </div>
+    <div class="project-grid featured-project-grid" id="featured-project-grid"></div>
+  </section>
+
+  <section class="section-card bottom-contact">
+    <h2>Contact</h2>
+    <div class="contact-links" id="contact-links"></div>
   </section>
 </main>
 

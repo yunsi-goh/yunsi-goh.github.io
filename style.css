@@ -80,15 +80,47 @@ li {
 .topbar {
   display: flex;
   align-items: center;
-  justify-content: stretch;
+  justify-content: space-between;
   gap: 1rem;
   min-height: 44px;
   margin-bottom: clamp(1rem, 3vw, 1.75rem);
 }
 
+.home-tab {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 42px;
+  border: 1px solid var(--button-line);
+  border-radius: 6px;
+  background: var(--clickable-bg);
+  color: var(--accent-strong);
+  padding: 0.45rem 0.8rem;
+  font-weight: 800;
+  white-space: nowrap;
+  box-shadow: var(--button-shadow-soft);
+  transition: background 160ms ease, border-color 160ms ease, box-shadow 160ms ease, color 160ms ease, transform 160ms ease;
+}
+
+.home-tab.active {
+  border-color: var(--accent-strong);
+  background: var(--accent-strong);
+  color: #ffffff;
+  box-shadow: var(--button-shadow);
+}
+
+.home-tab:hover,
+.home-tab:focus-visible {
+  border-color: var(--button-line-hover);
+  background: #f8faf8;
+  color: var(--accent-strong);
+  box-shadow: var(--button-shadow);
+  transform: translateY(-1px);
+}
+
 .tabs {
   display: flex;
-  width: 100%;
+  width: auto;
   gap: 0.25rem;
   padding: 0.25rem;
   border: 1px solid rgba(36, 100, 93, 0.18);
@@ -100,7 +132,7 @@ li {
 
 .tab-link {
   display: flex;
-  flex: 1 1 0;
+  flex: 0 0 auto;
   align-items: center;
   justify-content: center;
   min-height: 38px;
@@ -150,7 +182,7 @@ p {
 
 h1 {
   margin-bottom: 0.55rem;
-  font-size: clamp(2.35rem, 6vw, 4.4rem);
+  font-size: clamp(2.1rem, 5.2vw, 3.85rem);
   line-height: 1;
   letter-spacing: 0;
 }
@@ -206,7 +238,7 @@ h3 {
 }
 
 .about-hero h1 {
-  font-size: clamp(2rem, 5vw, 3.45rem);
+  font-size: clamp(1.85rem, 4.3vw, 3.05rem);
 }
 
 .about-stack > section {
@@ -215,6 +247,52 @@ h3 {
   background: #fff;
   padding: clamp(1rem, 3vw, 1.5rem);
   box-shadow: 0 10px 24px rgba(24, 33, 38, 0.05);
+}
+
+.featured-projects {
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--card);
+  padding: clamp(1rem, 3vw, 1.5rem);
+  box-shadow: 0 10px 24px rgba(24, 33, 38, 0.05);
+}
+
+.section-heading-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.section-heading-row h2 {
+  margin: 0;
+}
+
+.view-more-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 38px;
+  border: 1px solid var(--button-line);
+  border-radius: 6px;
+  background: var(--clickable-bg);
+  color: var(--accent);
+  padding: 0.35rem 0.7rem;
+  font-size: 0.88rem;
+  font-weight: 800;
+  white-space: nowrap;
+  box-shadow: var(--button-shadow-soft);
+  transition: background 160ms ease, border-color 160ms ease, box-shadow 160ms ease, color 160ms ease, transform 160ms ease;
+}
+
+.view-more-link:hover,
+.view-more-link:focus-visible {
+  border-color: var(--button-line-hover);
+  background: #f8faf8;
+  color: var(--accent-strong);
+  box-shadow: var(--button-shadow);
+  transform: translateY(-1px);
 }
 
 .page-heading {
@@ -232,7 +310,7 @@ h3 {
 
 .page-heading h1 {
   margin: 0;
-  font-size: clamp(2rem, 4.6vw, 3.15rem);
+  font-size: clamp(1.8rem, 4vw, 2.75rem);
 }
 
 .logo-card-row {
@@ -357,7 +435,7 @@ h3 {
 
 .project-detail h1 {
   margin-bottom: 0;
-  font-size: clamp(1.55rem, 4vw, 2.35rem);
+  font-size: clamp(1.4rem, 3.5vw, 2.1rem);
   line-height: 1.08;
   letter-spacing: 0;
   text-transform: none;
@@ -468,6 +546,14 @@ h3 {
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 0.85rem;
   margin-top: 0.8rem;
+}
+
+.bottom-contact {
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--card);
+  padding: clamp(1rem, 3vw, 1.5rem);
+  box-shadow: 0 10px 24px rgba(24, 33, 38, 0.05);
 }
 
 .contact-links a {
@@ -707,7 +793,9 @@ button:focus-visible {
   }
 
   .topbar {
-    justify-content: flex-start;
+    align-items: stretch;
+    flex-direction: column;
+    gap: 0.55rem;
   }
 
   h1 {
@@ -715,8 +803,13 @@ button:focus-visible {
   }
 
   .tabs {
+    justify-content: flex-end;
     gap: 0.15rem;
     padding: 0.2rem;
+  }
+
+  .home-tab {
+    align-self: flex-start;
   }
 
   .tab-link {

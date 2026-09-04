@@ -3,29 +3,38 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Contact | Goh Yun Si</title>
-<meta name="description" content="Contact links for Goh Yun Si.">
+<title>About Me | Goh Yun Si</title>
+<meta name="description" content="Education and experience of Goh Yun Si.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 </head>
-<body data-page="contact">
+<body data-page="about">
 <main class="shell">
   <header class="topbar">
     <a class="home-tab" href="index.html">Goh Yun Si</a>
     <nav class="tabs" aria-label="Portfolio pages">
-      <a class="tab-link" href="about.html">About Me</a>
+      <a class="tab-link active" href="about.html">About Me</a>
       <a class="tab-link" href="projects.html">Projects</a>
-      <a class="tab-link active" href="contact.html">Contact</a>
+      <a class="tab-link" href="contact.html">Contact</a>
     </nav>
   </header>
 
-  <section class="section-card contact-panel">
+  <section class="section-card about-section">
     <div class="page-heading">
-      <h1>Let's connect 🙂</h1>
+      <h1>About Me</h1>
     </div>
-    <div class="contact-links" id="contact-links"></div>
+    <div class="about-stack">
+      <section>
+        <h2>Education</h2>
+        <div class="logo-card-row" id="education-list"></div>
+      </section>
+      <section>
+        <h2>Experience</h2>
+        <div class="logo-card-row" id="experience-list"></div>
+      </section>
+    </div>
   </section>
 </main>
 
