@@ -1,7 +1,6 @@
 const PROFILE = {
   name: "Goh Yun Si",
-  title: "AI, Remote Sensing & Geospatial Analytics",
-  intro: "",
+  title: "AI, Geospatial Analytics, Remote Sensing",
   email: "gohgys97@gmail.com",
   linkedin: "https://www.linkedin.com/in/yun-si-goh/",
   github: "https://github.com/yunsi-goh",
@@ -15,6 +14,11 @@ const PROFILE = {
       label: "Gmail: gohgys97@gmail.com",
       url: "mailto:gohgys97@gmail.com",
       logoSrc: "asset/logo/gmail.svg",
+    },
+    {
+      label: "GitHub",
+      url: "https://github.com/yunsi-goh",
+      logoSrc: "asset/logo/github_full.png",
     },
   ],
 };
@@ -102,5 +106,15 @@ const PROJECTS = [
     tags: ["LLM Agent", "Prompt Engineering"],
     github: "https://github.com/yunsi-goh/Gomoku-AI-Agent",
     thumbnail: "asset/project/Gomoku AI Agent.png",
+  },
+  {
+    name: "Statistical Analysis on Screentime",
+    slug: "statistical-analysis-on-screentime",
+    tags: ["Descriptive Statistics", "Inferential Statistics", "Hypothesis Testing", "Regression Analysis"],
+    actionUrl: "https://medium.com/mitb-for-all/growing-up-online-rethinking-singapores-guidelines-for-a-connected-singapore-c290640d1180",
+    actionLogo: "asset/logo/medium.svg",
+    actionLabel: "Read Statistical Analysis on Screentime on Medium",
+    slideFolder: "asset/project/Statistical Analysis on Screentime",
+    slideCount: 13,
   },
 ];

@@ -67,9 +67,14 @@ function renderProjectSlides(project) {
         <img src="${slideImages[0]}" alt="${project.name} slide 1" loading="lazy">
       </div>
       <div class="slide-controls">
-        <button type="button" class="slide-prev" aria-label="Previous slide">Prev</button>
-        <span>1 / ${slideImages.length}</span>
-        <button type="button" class="slide-next" aria-label="Next slide">Next</button>
+        <button type="button" class="slide-prev slide-arrow" aria-label="Previous slide">&lt;</button>
+        <span class="slide-count">1 / ${slideImages.length}</span>
+        <div class="slide-control-actions">
+          <button type="button" class="slide-zoom" aria-label="Open slideshow full page">
+            <img src="asset/logo/zoom.svg" alt="" aria-hidden="true">
+          </button>
+          <button type="button" class="slide-next slide-arrow" aria-label="Next slide">&gt;</button>
+        </div>
       </div>
     </div>
   `;
@@ -114,9 +119,10 @@ function bindSlideshows(scope, project) {
 
   scope.querySelectorAll(".slideshow").forEach((slideshow) => {
     const img = slideshow.querySelector("img");
-    const count = slideshow.querySelector("span");
+    const count = slideshow.querySelector(".slide-count");
     const prev = slideshow.querySelector(".slide-prev");
     const next = slideshow.querySelector(".slide-next");
+    const zoom = slideshow.querySelector(".slide-zoom");
     let current = 0;
 
     function showSlide(index) {
@@ -127,8 +133,32 @@ function bindSlideshows(scope, project) {
       slideshow.dataset.current = current;
     }
 
+    function updateZoomLabel() {
+      const isFullscreen = document.fullscreenElement === slideshow;
+      const zoomIcon = zoom.querySelector("img");
+
+      if (zoomIcon) {
+        zoomIcon.src = isFullscreen
+          ? "asset/logo/zoomout.svg"
+          : "asset/logo/zoom.svg";
+      }
+
+      zoom.setAttribute(
+        "aria-label",
+        isFullscreen ? "Exit full page slideshow" : "Open slideshow full page"
+      );
+    }
+
     prev.addEventListener("click", () => showSlide(current - 1));
     next.addEventListener("click", () => showSlide(current + 1));
+    zoom.addEventListener("click", async () => {
+      if (!document.fullscreenElement) {
+        await slideshow.requestFullscreen();
+      } else {
+        await document.exitFullscreen();
+      }
+    });
+    document.addEventListener("fullscreenchange", updateZoomLabel);
   });
 }
 
@@ -148,15 +178,22 @@ function renderStandaloneSlideshow() {
     return;
   }
 
+  const actionUrl = project.actionUrl || project.github;
+  const actionLogo = project.actionLogo || "asset/logo/github.png";
+  const actionLabel = project.actionLabel || `Open ${project.name} on GitHub`;
+
   target.innerHTML = `
+    <div class="detail-top-actions">
+      <a class="back-button" href="projects.html" aria-label="Back to projects">&lt;-</a>
+      ${
+        actionUrl
+          ? `<a class="logo-action" href="${actionUrl}" ${externalAttrs(actionUrl)} aria-label="${actionLabel}"><img src="${actionLogo}" alt="" loading="lazy"></a>`
+          : ""
+      }
+    </div>
     <article>
       <div class="project-title-row">
-        <h2>${project.name}</h2>
-        ${
-          project.github
-            ? `<p class="detail-actions"><a class="logo-action" href="${project.github}" ${externalAttrs(project.github)} aria-label="Open ${project.name} on GitHub"><img src="asset/logo/github.png" alt="" loading="lazy"></a></p>`
-            : ""
-        }
+        <h1>${project.name}</h1>
       </div>
       <ul class="tag-list">
         ${project.tags.map((tag) => `<li>${tag}</li>`).join("")}
@@ -192,7 +229,6 @@ function renderContact() {
 
 setText("profile-title", PROFILE.title);
 setText("profile-name", PROFILE.name);
-setText("profile-intro", PROFILE.intro);
 
 renderLogoRows(EXPERIENCE, "experience-list", "title", "company");
 renderLogoRows(EDUCATION, "education-list", "degree", "school");
