@@ -1,6 +1,6 @@
 const PROFILE = {
   name: "Goh Yun Si",
-  title: "AI, Geospatial Analytics, Remote Sensing",
+  title: "Applied AI, MLOps & Geospatial Analytics",
   email: "gohgys97@gmail.com",
   linkedin: "https://www.linkedin.com/in/yun-si-goh/",
   github: "https://github.com/yunsi-goh",
@@ -71,9 +71,17 @@ const PROJECTS = [
   {
     name: "Health Claim Verification Agentic System",
     slug: "health-claim-verification",
-    tags: ["RAG", "VectorDB", "Chunking", "LangGraph", "Agentic AI", "LLM Evaluation"],
+    tags: ["Chunking", "RAG", "LangGraph", "Agentic AI", "LLM Evaluation"],
     github: "https://github.com/yunsi-goh/Health-Claim-Verification-Agentic-System",
     slideFolder: "asset/project/Health Claim Verification Agentic System",
+    slideCount: 23,
+  },
+  {
+    name: "Medical Image Segmentation",
+    slug: "medical-image-segmentation",
+    tags: ["Transfer Learning", "nnU-Net", "LoRA"],
+    github: "https://github.com/yunsi-goh/Medical-Image-Segmentation",
+    slideFolder: "asset/project/Medical Image Segmentation",
     slideCount: 23,
   },
   {
@@ -85,12 +93,12 @@ const PROJECTS = [
     slideCount: 30,
   },
   {
-    name: "Medical Image Segmentation",
-    slug: "medical-image-segmentation",
-    tags: ["Transfer Learning", "nnU-Net", "LoRA"],
-    github: "https://github.com/yunsi-goh/Medical-Image-Segmentation",
-    slideFolder: "asset/project/Medical Image Segmentation",
-    slideCount: 23,
+    name: "Sentinel-2 Superresolution & Land Classification",
+    slug: "lessons-from-applying-srgan-on-sentinel-2-images-for-lulc-classification",
+    tags: ["GAN", "Random Forest", "Remote Sensing", "Geospatial"],
+    actionUrl: "https://doi.org/10.1109/SITIS61268.2023.00025",
+    actionLabel: "Open paper DOI",
+    thumbnail: "asset/project/Sentinel-2 Superresolution & Land Classification.png",
   },
   {
     name: "Sneaker Image Classification",

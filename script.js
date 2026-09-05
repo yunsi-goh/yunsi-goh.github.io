@@ -86,7 +86,7 @@ function projectCardMarkup(project, index) {
   const href =
     slideImages.length > 0
       ? `slideshow.html?project=${encodeURIComponent(project.slug || index)}`
-      : project.github;
+      : project.actionUrl || project.github || "#";
 
   return `
     <a class="project-card" href="${href}" ${externalAttrs(href)}>
@@ -98,7 +98,7 @@ function projectCardMarkup(project, index) {
       </div>
       ${
         thumbnail
-          ? `<img class="project-thumbnail" src="${thumbnail}" alt="${project.name} slide 1" loading="lazy">`
+          ? `<img class="project-thumbnail" src="${thumbnail}" alt="${project.name} preview" loading="lazy">`
           : ""
       }
     </a>
@@ -117,7 +117,7 @@ function renderProjects() {
 }
 
 function renderFeaturedProjects() {
-  renderProjectCards("featured-project-grid", PROJECTS.slice(0, 3));
+  renderProjectCards("featured-project-grid", PROJECTS.slice(0, 4));
 }
 
 function bindSlideshows(scope, project) {
