@@ -1,6 +1,8 @@
 const PROFILE = {
   name: "Goh Yun Si",
-  title: "Applied AI, MLOps & Geospatial Analytics",
+  title: "MLOps, Applied AI & Geospatial Analytics",
+  summary:
+    "AI master's graduate (SMU) with 5 years in geospatial and remote sensing and 2 first-author papers on deep learning for satellite imagery. Seeking Data Scientist and ML Engineer roles focused on MLOps, LLM systems or computer vision.",
   email: "gohgys97@gmail.com",
   linkedin: "https://www.linkedin.com/in/yun-si-goh/",
   github: "https://github.com/yunsi-goh",
@@ -77,14 +79,6 @@ const PROJECTS = [
     slideCount: 23,
   },
   {
-    name: "Medical Image Segmentation",
-    slug: "medical-image-segmentation",
-    tags: ["Transfer Learning", "nnU-Net", "LoRA"],
-    github: "https://github.com/yunsi-goh/Medical-Image-Segmentation",
-    slideFolder: "asset/project/Medical Image Segmentation",
-    slideCount: 23,
-  },
-  {
     name: "MERaLiON Safety Evaluation",
     slug: "meralion-safety-evaluation",
     tags: ["ASR Evaluation", "Robustness", "Fairness", "AI Safety"],
@@ -101,6 +95,24 @@ const PROJECTS = [
     thumbnail: "asset/project/Sentinel-2 Superresolution & Land Classification.png",
   },
   {
+    name: "Medical Image Segmentation",
+    slug: "medical-image-segmentation",
+    tags: ["Transfer Learning", "nnU-Net", "LoRA"],
+    github: "https://github.com/yunsi-goh/Medical-Image-Segmentation",
+    slideFolder: "asset/project/Medical Image Segmentation",
+    slideCount: 23,
+  },
+  {
+    name: "Statistical Analysis on Screentime",
+    slug: "statistical-analysis-on-screentime",
+    tags: ["Descriptive Statistics", "Inferential Statistics", "Hypothesis Testing", "Regression Analysis"],
+    actionUrl: "https://medium.com/mitb-for-all/growing-up-online-rethinking-singapores-guidelines-for-a-connected-singapore-c290640d1180",
+    actionLogo: "asset/logo/medium.svg",
+    actionLabel: "Read Statistical Analysis on Screentime on Medium",
+    slideFolder: "asset/project/Statistical Analysis on Screentime",
+    slideCount: 13,
+  },
+  {
     name: "Sneaker Image Classification",
     slug: "sneaker-image-classification",
     tags: ["Transfer Learning", "CNN", "ResNet50"],
@@ -114,15 +126,5 @@ const PROJECTS = [
     tags: ["LLM Agent", "Prompt Engineering"],
     github: "https://github.com/yunsi-goh/Gomoku-AI-Agent",
     thumbnail: "asset/project/Gomoku AI Agent.png",
-  },
-  {
-    name: "Statistical Analysis on Screentime",
-    slug: "statistical-analysis-on-screentime",
-    tags: ["Descriptive Statistics", "Inferential Statistics", "Hypothesis Testing", "Regression Analysis"],
-    actionUrl: "https://medium.com/mitb-for-all/growing-up-online-rethinking-singapores-guidelines-for-a-connected-singapore-c290640d1180",
-    actionLogo: "asset/logo/medium.svg",
-    actionLabel: "Read Statistical Analysis on Screentime on Medium",
-    slideFolder: "asset/project/Statistical Analysis on Screentime",
-    slideCount: 13,
   },
 ];

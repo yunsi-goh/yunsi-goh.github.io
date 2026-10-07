@@ -235,6 +235,7 @@ function renderContact() {
 
 setText("profile-title", PROFILE.title);
 setText("profile-name", PROFILE.name);
+setText("profile-summary", PROFILE.summary);
 
 renderLogoRows(EXPERIENCE, "experience-list", "title", "company");
 renderLogoRows(EDUCATION, "education-list", "degree", "school");

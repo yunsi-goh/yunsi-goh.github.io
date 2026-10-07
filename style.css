@@ -237,6 +237,16 @@ h3 {
   gap: 1rem;
 }
 
+.about-hero .profile-summary {
+  margin: 0.75rem 0 0;
+  color: var(--muted);
+  font-size: 0.875rem;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1.55;
+  text-transform: none;
+}
+
 .about-hero h1 {
   font-size: clamp(1.85rem, 4.3vw, 3.05rem);
 }
